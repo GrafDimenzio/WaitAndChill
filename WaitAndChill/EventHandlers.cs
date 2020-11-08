@@ -25,7 +25,7 @@ namespace WaitAndChill
 
             while (!Map.Get.Round.RoundIsActive)
             {
-                NonFacilityCompatibility.currentSceneSettings.constantRespawnPoint = PluginClass.Config.LobbySpawn.Parse().Position;
+               Map.Get.RespawnPoint = PluginClass.Config.LobbySpawn.Parse().Position;
 
                 var newmsg = msg.Replace("%players%", Server.Get.Players.Count.ToString());
                 switch (GameCore.RoundStart.singleton.NetworkTimer)
@@ -51,7 +51,7 @@ namespace WaitAndChill
                     player.GiveTextHint(newmsg);
                 }
 
-                NonFacilityCompatibility.currentSceneSettings.constantRespawnPoint = Vector3.zero;
+                Map.Get.RespawnPoint = Vector3.zero;
                 yield return Timing.WaitForOneFrame;
             }
 
