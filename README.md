@@ -3,7 +3,7 @@ A Scp:SL Plugin for Synapse 2 that spawns Player during the waiting for players 
 
 ## Credits
 * [F4Fridey](https://github.com/F4Fridey) for making the [original](https://github.com/F4Fridey/WaitingAndChilling) Plugin and finding out how to remove the start screen.
-* [KoukoCocoa](https://github.com/KoukoCocoa) : through the Remake for Exiled I found the original Plugin
+* [KoukoCocoa](https://github.com/KoukoCocoa) : through the [Remake for Exiled](https://github.com/KoukoCocoa/WaitAndChill) I found the original Plugin
 ## Config
 | Config | Type | Description |
 | :--: | :--: | :--: |
