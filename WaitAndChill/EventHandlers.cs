@@ -25,7 +25,7 @@ namespace WaitAndChill
 
             while (!Map.Get.Round.RoundIsActive)
             {
-               Map.Get.RespawnPoint = PluginClass.Config.LobbySpawn.Parse().Position;
+                Map.Get.RespawnPoint = PluginClass.Config.LobbySpawn.Parse().Position;
 
                 var newmsg = msg.Replace("%players%", Server.Get.Players.Count.ToString());
                 switch (GameCore.RoundStart.singleton.NetworkTimer)
@@ -48,11 +48,11 @@ namespace WaitAndChill
                     if (player.RoleType == RoleType.None && player.Hub.Ready)
                         player.RoleID = (int)RoleType.Tutorial;
 
-                    player.GiveTextHint(newmsg);
+                    player.GiveTextHint(newmsg,1f);
                 }
 
                 Map.Get.RespawnPoint = Vector3.zero;
-                yield return Timing.WaitForOneFrame;
+                yield return Timing.WaitForSeconds(1f);
             }
 
             foreach (var door in Map.Get.Doors)
