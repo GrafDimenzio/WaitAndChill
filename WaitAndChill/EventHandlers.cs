@@ -20,9 +20,6 @@ namespace WaitAndChill
         {
             var msg = $"<i><color=blue>Waiting for more Players!</color></i>\n<i><color=red>%players%/{CustomNetworkManager.slots}</color></i>\n<i>%status%</color></i>";
 
-            foreach (var door in Map.Get.Doors)
-                door.Locked = true;
-
             while (!Map.Get.Round.RoundIsActive)
             {
                 Map.Get.RespawnPoint = PluginClass.Config.LobbySpawn.Parse().Position;
@@ -45,7 +42,7 @@ namespace WaitAndChill
 
                 foreach (var player in Server.Get.Players)
                 {
-                    if (player.RoleType == RoleType.None && player.Hub.Ready)
+                    if ((player.RoleType == RoleType.None || player.RoleType == RoleType.Spectator) && player.Hub.Ready)
                         player.RoleID = (int)RoleType.Tutorial;
 
                     player.GiveTextHint(newmsg,1f);
@@ -54,9 +51,6 @@ namespace WaitAndChill
                 Map.Get.RespawnPoint = Vector3.zero;
                 yield return Timing.WaitForSeconds(1f);
             }
-
-            foreach (var door in Map.Get.Doors)
-                door.Locked = false;
         }
 
     }
