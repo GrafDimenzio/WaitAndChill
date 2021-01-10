@@ -3,6 +3,7 @@ using Synapse;
 using Synapse.Api;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
 namespace WaitAndChill
 {
@@ -14,7 +15,12 @@ namespace WaitAndChill
         {
             GameObject.Find("StartRound").transform.localScale = Vector3.zero;
             Timing.RunCoroutine(WaitingForPlayers());
-            Server.Get.Host.ClassManager.RpcRoundStarted();
+
+
+            var component = Server.Get.Host.ClassManager;
+            NetworkWriter writer = NetworkWriterPool.GetWriter();
+            component.SendRPCInternal(typeof(global::CharacterClassManager), "RpcRoundStarted", writer, 0);
+            NetworkWriterPool.Recycle(writer);
         }
 
         private IEnumerator<float> WaitingForPlayers()
