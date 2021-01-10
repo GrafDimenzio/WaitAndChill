@@ -7,10 +7,10 @@ namespace WaitAndChill
         Author = "Dimenzio (Original: F4Fridey)",
         LoadPriority = int.MinValue,
         Description = "A Plugin which spawns player while waiting for Players",
-        SynapseMajor = SynapseController.SynapseMajor,
-        SynapseMinor = SynapseController.SynapseMinor,
-        SynapsePatch = SynapseController.SynapsePatch,
-        Version = "v.1.0.2"
+        SynapseMajor = 2,
+        SynapseMinor = 4,
+        SynapsePatch = 2,
+        Version = "v.1.0.3"
         )]
     public class PluginClass : AbstractPlugin
     {

@@ -14,6 +14,7 @@ namespace WaitAndChill
         {
             GameObject.Find("StartRound").transform.localScale = Vector3.zero;
             Timing.RunCoroutine(WaitingForPlayers());
+            Server.Get.Host.ClassManager.RpcRoundStarted();
         }
 
         private IEnumerator<float> WaitingForPlayers()
