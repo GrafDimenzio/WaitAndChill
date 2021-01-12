@@ -25,13 +25,12 @@ namespace WaitAndChill
 
         private IEnumerator<float> WaitingForPlayers()
         {
-            var msg = $"<i><color=blue>Waiting for more Players!</color></i>\n<i><color=red>%players%/{CustomNetworkManager.slots}</color></i>\n<i>%status%</color></i>";
-
             while (!Map.Get.Round.RoundIsActive)
             {
                 Map.Get.RespawnPoint = PluginClass.Config.LobbySpawn.Parse().Position;
 
-                var newmsg = msg.Replace("%players%", Server.Get.Players.Count.ToString());
+                var newmsg = PluginClass.Config.LobbyText.Replace("%players%", Server.Get.Players.Count.ToString()).Replace("%slots%", Server.Get.Slots.ToString());
+
                 switch (GameCore.RoundStart.singleton.NetworkTimer)
                 {
                     case -2:
