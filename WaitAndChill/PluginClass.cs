@@ -10,7 +10,7 @@ namespace WaitAndChill
         SynapseMajor = 2,
         SynapseMinor = 4,
         SynapsePatch = 2,
-        Version = "v.1.0.4"
+        Version = "v.1.1.0"
         )]
     public class PluginClass : AbstractPlugin
     {
