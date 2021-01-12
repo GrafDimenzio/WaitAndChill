@@ -6,6 +6,12 @@ namespace WaitAndChill
     {
         public SerializedMapPoint LobbySpawn = new SerializedMapPoint("EZ_Shelter", 0f, 2f, 0f);
 
-        public string LobbyText = "<i><color=blue>Waiting for more Players!</color></i>\n<i><color=red>%players%/%slots%</color></i>\n<i>%status%</color></i>";
+        public string LobbyText = "<i><color=blue>Waiting for more Players!</color></i>\\n<i><color=red>%players%/%slots%</color></i>\\n<i>%status%</color></i>";
+
+        public string StatusStart = "Round is starting";
+
+        public string StatusWaiting = "%seconds% seconds left";
+
+        public string StatusNoPlayer = "";
     }
 }

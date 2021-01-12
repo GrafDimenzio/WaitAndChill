@@ -29,20 +29,20 @@ namespace WaitAndChill
             {
                 Map.Get.RespawnPoint = PluginClass.Config.LobbySpawn.Parse().Position;
 
-                var newmsg = PluginClass.Config.LobbyText.Replace("%players%", Server.Get.Players.Count.ToString()).Replace("%slots%", Server.Get.Slots.ToString());
+                var newmsg = PluginClass.Config.LobbyText.Replace("%players%", Server.Get.Players.Count.ToString()).Replace("%slots%", Server.Get.Slots.ToString()).Replace("\\n","\n");
 
                 switch (GameCore.RoundStart.singleton.NetworkTimer)
                 {
                     case -2:
-                        newmsg = newmsg.Replace("%status%", "");
+                        newmsg = newmsg.Replace("%status%", PluginClass.Config.StatusNoPlayer);
                         break;
 
                     case -1:
-                        newmsg = newmsg.Replace("%status%", "Round is starting");
+                        newmsg = newmsg.Replace("%status%", PluginClass.Config.StatusStart);
                         break;
 
                     default:
-                        newmsg = newmsg.Replace("%status%", $"{GameCore.RoundStart.singleton.NetworkTimer} seconds left");
+                        newmsg = newmsg.Replace("%status%", PluginClass.Config.StatusWaiting.Replace("%seconds%", GameCore.RoundStart.singleton.NetworkTimer.ToString()));
                         break;
                 }
 
