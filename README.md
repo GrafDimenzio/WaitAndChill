@@ -18,5 +18,9 @@ lobbySpawn:
   x: 0
   y: 2
   z: 0
+lobbyText: <i><color=blue>Waiting for more Players!</color></i>\n<i><color=red>%players%/%slots%</color></i>\n<i>%status%</color></i>
+statusStart: Round is starting
+statusWaiting: '%seconds% seconds left'
+statusNoPlayer: ''
 }
 ```
