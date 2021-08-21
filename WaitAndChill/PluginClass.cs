@@ -1,22 +1,38 @@
 ﻿using Synapse.Api.Plugin;
+using Synapse.Translation;
 
 namespace WaitAndChill
 {
     [PluginInformation(
         Name = "WaitAndChill",
         Author = "Dimenzio (Original: F4Fridey)",
-        LoadPriority = int.MinValue,
+        LoadPriority = 0,
         Description = "A Plugin which spawns player while waiting for Players",
         SynapseMajor = 2,
-        SynapseMinor = 4,
-        SynapsePatch = 2,
-        Version = "v.1.1.0"
+        SynapseMinor = 7,
+        SynapsePatch = 0,
+        Version = "v.1.2.0"
         )]
     public class PluginClass : AbstractPlugin
     {
-        [Synapse.Api.Plugin.Config(section = "WaitAndChill")]
-        public static Config Config;
+        [Config(section = "WaitAndChill")]
+        public static PluginConfig Config;
 
-        public override void Load() => new EventHandlers();
+        [SynapseTranslation]
+        public static new SynapseTranslation<PluginTranslation> Translation { get; set; }
+
+        public override void Load()
+        {
+            Translation.AddTranslation(new PluginTranslation());
+            Translation.AddTranslation(new PluginTranslation
+            {
+                LobbyText = "<i><color=blue>Warten auf mehr Spieler!</color></i>\\n<i><color=red>%players%/%slots%</color></i>\\n<i>%status%</color></i>",
+                StatusNoPlayer = "",
+                StatusStart = "Runde startet",
+                StatusWaiting = "Es sind noch %seconds% Sekunden übrig"
+            }, "GERMAN");
+
+            new EventHandlers();
+        }
     }
 }
