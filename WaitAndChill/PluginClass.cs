@@ -9,9 +9,9 @@ namespace WaitAndChill
         LoadPriority = 0,
         Description = "A Plugin which spawns player while waiting for Players",
         SynapseMajor = 2,
-        SynapseMinor = 7,
+        SynapseMinor = 9,
         SynapsePatch = 0,
-        Version = "v.1.2.0"
+        Version = "v.1.2.1"
         )]
     public class PluginClass : AbstractPlugin
     {

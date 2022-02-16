@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
-using MEC;
+﻿using MEC;
 using Synapse;
 using Synapse.Api;
-using UnityEngine;
-using System.Linq;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 
 namespace WaitAndChill
 {
